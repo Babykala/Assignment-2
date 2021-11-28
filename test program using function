@@ -1,0 +1,114 @@
+//Print odd numbers in an array
+function odd(arr){
+    var res=[];
+    for(i=0;i<arr.length;i++){
+        if(arr[i]%2!==0)
+      res.push(arr[i])  
+    }
+    return res
+}
+console.log(odd([1,2,8,4,5]))
+
+//Convert all the strings to title caps in a string array
+function caps(word){
+    var res=[];
+    for(i=0;i<word.length;i++){
+        var str=word[i].split('');
+        var ele=str[0].toUpperCase()+str.slice(1).join('');
+       res.push(ele);
+    }
+    return res
+}
+console.log(caps(['guvi','geek','zen','portal']))
+
+//Sum of all numbers in an array
+function sum(arr){
+    var res=0;
+    for(i=0;i<arr.length;i++){
+        res=res+arr[i];
+    }
+    return res
+}
+console.log(sum([1,2,3,4,5]))
+
+// Return all the prime numbers in an array
+function isprime(number){
+    for (let i = 2; i < number; i++) {
+        if(number % i === 0) {
+            return false 
+        }
+        return number;
+    }   
+ }
+//Main program
+var arr=[1,2,3,8,5];
+for(i=0;i<arr.length;i++){
+    if(arr[i]==2){
+        console.log(arr[i])
+    }
+    else if(arr[i]>2){
+        primeNum=isprime(arr[i]);
+        if(primeNum!==false) 
+        console.log(primeNum)
+    }
+   }
+
+//Return all the palindromes in an array
+function palindrome(str){
+   let strReverse = str.split("").reverse().join("");
+    if (str === strReverse) 
+    return str;
+    return false;
+ }
+//Main program
+var arr=['dad','12321','civic','guvi'];
+for(i=0;i<arr.length;i++){
+        var res=palindrome(arr[i]);
+        if(res!==false)
+        console.log(res)
+    }
+   
+//Return median of two sorted arrays of same size
+var arr1=[2,8,6,10,4];
+var arr2=[1,3,5,7,9];
+arr1.sort((a,b)=>{return a-b});
+arr2.sort((a,b)=>{return a-b});
+var m1=median(arr1);
+var m2=median(arr2);
+var med=(m1+m2)/2;
+console.log(med)
+
+
+function median(arr){
+   var len=arr.length;
+   if(len%2===0){
+   var median=(arr[len/2]+arr[len/2-1])/2;
+   return median;}
+   return arr[Math.floor(len/2)]
+ }
+
+
+//Remove duplicates from an array
+function removeDuplicates(arr){
+    let res=arr.filter((n, index) => arr.indexOf(n) === index);
+    return res
+ }
+//Main program
+var arr=[1,2,3,1,2,4,5];
+console.log(removeDuplicates(arr));
+
+//Rotate an array by k times
+function rightRotate(arr, k){
+    let res=arr.slice(k).concat(arr.slice(0, k));
+    return res
+ }
+ function leftRotate(arr, k){
+    let res=arr.slice(-k).concat(arr.slice(0, k+1));
+    return res
+ }
+//Main program
+var arr=[1,2,3,4,5];
+console.log(rightRotate(arr,2));
+console.log(leftRotate(arr,2));
+
+
